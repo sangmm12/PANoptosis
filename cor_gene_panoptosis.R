@@ -42,22 +42,6 @@ dat_one_tumor <- dat_one_tumor[,!duplicated(colnames(dat_one_tumor))]
 dat_one_tumor <- dat_one_tumor[,3:length(colnames(dat_one_tumor))]
 
 
-
-#CIBER
-if (tumor_id == "CHOL"||tumor_id=="PCPG")
-{
-  dat_one_tumor <- select(dat_one_tumor,-c('T_cells_gamma_delta'))
-}
-if (tumor_id == "LUAD"||tumor_id=="PCPG")
-{
-  dat_one_tumor <- select(dat_one_tumor,-c('T_cells_CD4_naive'))
-}
-if (tumor_id=="TGCT")
-{
-  dat_one_tumor <- select(dat_one_tumor,-c("Eosinophils"))
-}
-
-
 one_tumor_sample <- unlist(rownames(dat_one_tumor))
 
 all_name <- names(which(table(c(rownames(dat_input),one_tumor_sample))==2))

@@ -13,10 +13,7 @@ for(i in filename)
 df = read.csv(paste0(i,'.csv'),header=T,row.names=1)
 df = replace(df,is.na(df),1)
 df_temp = df
-for (name in c("ACC","BLCA"))
-{
-    print(df[which(colnames(df) == name)])
-}
+
 df = -log10(abs(df))
 df[df_temp<0] = -df[df_temp<0]
 
